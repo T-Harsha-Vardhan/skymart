@@ -1,7 +1,9 @@
 export default function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100">
-      <h1 className="text-5xl font-bold text-violet-600">SkyMart 🚀</h1>
-    </main>
+    <div className="bg-background flex min-h-screen items-center justify-center">
+      <button className="bg-primary hover:bg-primary-hover rounded-md px-6 py-3 text-white transition-colors">
+        SkyMart
+      </button>
+    </div>
   );
 }
