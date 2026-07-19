@@ -1,6 +1,7 @@
 import Container from "../ui/Container";
 import Input from "../ui/Input";
 import Typography from "../ui/Typography";
+import Navbar from "./Navbar";
 
 export default function Header() {
   return (
@@ -24,6 +25,8 @@ export default function Header() {
             <button aria-label="Profile">👤</button>
           </div>
         </div>
+
+        <Navbar />
       </Container>
     </header>
   );
