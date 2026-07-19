@@ -1,6 +1,6 @@
 import Container from "../ui/Container";
 import Typography from "../ui/Typography";
-import ProductCard from "../product/ProductCard";
+import ProductGrid from "../product/ProductGrid";
 
 const products = [
   {
@@ -36,16 +36,7 @@ export default function FeaturedProducts() {
         <div className="space-y-10">
           <Typography variant="h2">Featured Products</Typography>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                title={product.title}
-                price={product.price}
-                image={product.image}
-              />
-            ))}
-          </div>
+          <ProductGrid products={products} />
         </div>
       </Container>
     </section>
