@@ -3,18 +3,11 @@ import CartList from "./CartList";
 import CartSummary from "./CartSummary";
 
 export default function CartSidebar() {
-  const { cart } = useCart();
+  const { cart, totalItems, subtotal } = useCart();
 
   if (cart.length === 0) {
     return null;
   }
-
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-
-  const subtotal = cart.reduce(
-    (total, item) => total + item.product.price * item.quantity,
-    0
-  );
 
   return (
     <aside className="border-border bg-background w-80 shrink-0 border-l">

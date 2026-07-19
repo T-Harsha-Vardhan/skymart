@@ -19,11 +19,7 @@ export default function ProductDetailsPage() {
 
   const product = products.find((product) => product.id === Number(id));
 
-  console.log(cart);
-
   const isProductExists = cart.find((item) => item.product.id === product.id);
-
-  console.log(isProductExists);
 
   if (!product) {
     return (

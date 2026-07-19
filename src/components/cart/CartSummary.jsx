@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router";
 import Button from "../ui/Button";
 
-export default function CartSummary({ subtotal }) {
+export default function CartSummary({ subtotal, noViewCart = false }) {
+  const navigate = useNavigate();
+
   return (
     <div className="mt-8 border-t pt-6">
       <div className="mb-4 flex justify-between">
@@ -9,7 +12,11 @@ export default function CartSummary({ subtotal }) {
         <span className="font-semibold">₹{subtotal.toLocaleString()}</span>
       </div>
 
-      <Button className="w-full">View Cart</Button>
+      {!noViewCart && (
+        <Button onClick={() => navigate("/cart")} className="w-full">
+          View Cart
+        </Button>
+      )}
     </div>
   );
 }
