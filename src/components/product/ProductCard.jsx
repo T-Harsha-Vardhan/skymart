@@ -11,10 +11,10 @@ export default function ProductCard({ title, price, image }) {
         className="aspect-square w-full rounded-md object-cover"
       />
 
-      <div className="mt-4 space-y-2">
+      <div className="mt-4 space-y-3">
         <Typography variant="h3">{title}</Typography>
 
-        <Typography>₹{price}</Typography>
+        <Typography>₹{price.toLocaleString()}</Typography>
 
         <Button>Add to Cart</Button>
       </div>
