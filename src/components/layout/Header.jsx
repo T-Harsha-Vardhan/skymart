@@ -7,6 +7,8 @@ import useCart from "../../context/useCart";
 export default function Header() {
   const { cart } = useCart();
 
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className="border-border bg-background border-b">
       <Container>
@@ -26,7 +28,7 @@ export default function Header() {
             <div className="flex items-center gap-2">
               <span>🛒</span>
 
-              <span className="text-sm font-medium">{cart.length}</span>
+              <span className="text-sm font-medium">{cartCount}</span>
             </div>
 
             <button aria-label="Profile">👤</button>
