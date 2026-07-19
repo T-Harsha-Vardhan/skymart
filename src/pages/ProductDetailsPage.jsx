@@ -4,6 +4,7 @@ import Typography from "../components/ui/Typography";
 import Button from "../components/ui/Button";
 import { products } from "../data/products";
 import useCart from "../context/useCart";
+import QuantitySelector from "../components/cart/QuantitySelector";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
@@ -83,34 +84,12 @@ export default function ProductDetailsPage() {
                 {product.stock > 0 ? "Add to Cart" : "Out of Stock"}
               </Button>
             ) : (
-              <>
-                <div className="flex items-center gap-2">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => decreaseQuantity(product.id)}
-                  >
-                    -
-                  </Button>
-
-                  <span>{isProductExists.quantity}</span>
-
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => increaseQuantity(product.id)}
-                  >
-                    +
-                  </Button>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  onClick={() => removeFromCart(product.id)}
-                >
-                  Remove
-                </Button>
-              </>
+              <QuantitySelector
+                quantity={isProductExists.quantity}
+                onIncrease={() => increaseQuantity(id)}
+                onDecrease={() => decreaseQuantity(id)}
+                onRemove={() => removeFromCart(id)}
+              />
             )}
           </div>
         </div>

@@ -1,9 +1,9 @@
 import useCart from "../../context/useCart";
-import Button from "../ui/Button";
+import CartList from "./CartList";
+import CartSummary from "./CartSummary";
 
 export default function CartSidebar() {
-  const { cart, decreaseQuantity, increaseQuantity, removeFromCart } =
-    useCart();
+  const { cart } = useCart();
 
   if (cart.length === 0) {
     return null;
@@ -27,62 +27,9 @@ export default function CartSidebar() {
           </span>
         </div>
 
-        <div className="flex-1 space-y-4">
-          {cart.map((item, idx) => (
-            <div key={idx} className="flex gap-3">
-              <img
-                src={item.product.image}
-                alt={item.product.title}
-                className="h-16 w-16 rounded-md object-cover"
-              />
+        <CartList cart={cart} />
 
-              <div className="min-w-0 flex-1">
-                <h3 className="truncate font-medium">{item.product.title}</h3>
-
-                <div className="flex items-center gap-2">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => decreaseQuantity(item.product.id)}
-                  >
-                    -
-                  </Button>
-
-                  <span>{item.quantity}</span>
-
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => increaseQuantity(item.product.id)}
-                  >
-                    +
-                  </Button>
-                </div>
-
-                <Button
-                  variant="ghost"
-                  onClick={() => removeFromCart(item.product.id)}
-                >
-                  Remove
-                </Button>
-
-                <p className="font-semibold">
-                  ₹{item.product.price.toLocaleString()}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-8 border-t pt-6">
-          <div className="mb-4 flex justify-between">
-            <span>Subtotal</span>
-
-            <span className="font-semibold">₹{subtotal.toLocaleString()}</span>
-          </div>
-
-          <Button className="w-full">View Cart</Button>
-        </div>
+        <CartSummary subtotal={subtotal} />
       </div>
     </aside>
   );
