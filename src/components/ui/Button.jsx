@@ -4,6 +4,9 @@ const variants = {
 
   secondary:
     "rounded-md border border-border bg-background px-4 py-2 text-text transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
+
+  ghost:
+    "bg-background text-text transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
 };
 
 export default function Button({

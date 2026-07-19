@@ -2,7 +2,8 @@ import useCart from "../../context/useCart";
 import Button from "../ui/Button";
 
 export default function CartSidebar() {
-  const { cart } = useCart();
+  const { cart, decreaseQuantity, increaseQuantity, removeFromCart } =
+    useCart();
 
   if (cart.length === 0) {
     return null;
@@ -38,9 +39,32 @@ export default function CartSidebar() {
               <div className="min-w-0 flex-1">
                 <h3 className="truncate font-medium">{item.product.title}</h3>
 
-                <p className="text-muted-foreground text-sm">
-                  Qty: {item.quantity}
-                </p>
+                <div className="flex items-center gap-2">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => decreaseQuantity(item.product.id)}
+                  >
+                    -
+                  </Button>
+
+                  <span>{item.quantity}</span>
+
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => increaseQuantity(item.product.id)}
+                  >
+                    +
+                  </Button>
+                </div>
+
+                <Button
+                  variant="ghost"
+                  onClick={() => removeFromCart(item.product.id)}
+                >
+                  Remove
+                </Button>
 
                 <p className="font-semibold">
                   ₹{item.product.price.toLocaleString()}

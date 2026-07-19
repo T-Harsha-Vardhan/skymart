@@ -28,9 +28,52 @@ export default function CartProvider({ children }) {
     });
   }
 
+  function increaseQuantity(productId) {
+    setCart((previousCart) =>
+      previousCart.map((item) =>
+        item.product.id === productId
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  }
+
+  function decreaseQuantity(productId) {
+    setCart((previousCart) =>
+      previousCart.flatMap((item) => {
+        if (item.product.id !== productId) {
+          return item;
+        }
+
+        if (item.quantity === 1) {
+          return [];
+        }
+
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        };
+      })
+    );
+  }
+
+  function removeFromCart(productId) {
+    setCart((previousCart) =>
+      previousCart.filter((item) => item.product.id !== productId)
+    );
+  }
+
+  function clearCart() {
+    setCart([]);
+  }
+
   const value = {
     cart,
     addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+    clearCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

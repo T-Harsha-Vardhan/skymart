@@ -8,9 +8,21 @@ import useCart from "../context/useCart";
 export default function ProductDetailsPage() {
   const { id } = useParams();
 
-  const { addToCart } = useCart();
+  const {
+    cart,
+    addToCart,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+  } = useCart();
 
   const product = products.find((product) => product.id === Number(id));
+
+  console.log(cart);
+
+  const isProductExists = cart.find((item) => item.product.id === product.id);
+
+  console.log(isProductExists);
 
   if (!product) {
     return (
@@ -63,12 +75,43 @@ export default function ProductDetailsPage() {
           <Typography>{product.description}</Typography>
 
           <div className="pt-4">
-            <Button
-              onClick={() => addToCart(product)}
-              disabled={product.stock === 0}
-            >
-              {product.stock > 0 ? "Add to Cart" : "Out of Stock"}
-            </Button>
+            {!isProductExists ? (
+              <Button
+                onClick={() => addToCart(product)}
+                disabled={product.stock === 0}
+              >
+                {product.stock > 0 ? "Add to Cart" : "Out of Stock"}
+              </Button>
+            ) : (
+              <>
+                <div className="flex items-center gap-2">
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => decreaseQuantity(product.id)}
+                  >
+                    -
+                  </Button>
+
+                  <span>{isProductExists.quantity}</span>
+
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    onClick={() => increaseQuantity(product.id)}
+                  >
+                    +
+                  </Button>
+                </div>
+
+                <Button
+                  variant="ghost"
+                  onClick={() => removeFromCart(product.id)}
+                >
+                  Remove
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
