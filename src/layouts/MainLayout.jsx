@@ -6,17 +6,16 @@ import CartSidebar from "../components/cart/CartSidebar";
 export default function MainLayout() {
   return (
     <>
-      <Header />
-
-      <main className="flex">
-        <section className="min-w-0 flex-1">
-          <Outlet />
-        </section>
-
+      <div className="flex">
+        <div className="flex-1">
+          <Header />
+          <main className="flex">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
         <CartSidebar />
-      </main>
-
-      <Footer />
+      </div>
     </>
   );
 }

@@ -6,7 +6,9 @@ export default function CartProvider({ children }) {
 
   function addToCart(product) {
     setCart((previousCart) => {
-      const existingItem = previousCart.find((item) => item.id === product.id);
+      const existingItem = previousCart.find(
+        (item) => item.product.id === product.id
+      );
 
       if (existingItem) {
         return previousCart.map((item) =>
