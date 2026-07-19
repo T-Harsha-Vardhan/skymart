@@ -1,33 +1,7 @@
 import Container from "../ui/Container";
 import Typography from "../ui/Typography";
-import ProductCard from "../product/ProductCard";
-
-const products = [
-  {
-    id: 1,
-    title: "Wireless Headphones",
-    price: 4999,
-    image: "https://placehold.co/400x400?text=Headphones",
-  },
-  {
-    id: 2,
-    title: "Smart Watch",
-    price: 8999,
-    image: "https://placehold.co/400x400?text=Watch",
-  },
-  {
-    id: 3,
-    title: "Gaming Mouse",
-    price: 2499,
-    image: "https://placehold.co/400x400?text=Mouse",
-  },
-  {
-    id: 4,
-    title: "Mechanical Keyboard",
-    price: 5999,
-    image: "https://placehold.co/400x400?text=Keyboard",
-  },
-];
+import ProductGrid from "../product/ProductGrid";
+import { products } from "../../data/products";
 
 export default function FeaturedProducts() {
   return (
@@ -36,16 +10,7 @@ export default function FeaturedProducts() {
         <div className="space-y-10">
           <Typography variant="h2">Featured Products</Typography>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                title={product.title}
-                price={product.price}
-                image={product.image}
-              />
-            ))}
-          </div>
+          <ProductGrid products={products} />
         </div>
       </Container>
     </section>
