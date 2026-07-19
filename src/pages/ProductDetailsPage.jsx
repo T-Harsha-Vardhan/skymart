@@ -3,9 +3,12 @@ import Container from "../components/ui/Container";
 import Typography from "../components/ui/Typography";
 import Button from "../components/ui/Button";
 import { products } from "../data/products";
+import useCart from "../context/useCart";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
+
+  const { addToCart } = useCart();
 
   const product = products.find((product) => product.id === Number(id));
 
@@ -60,7 +63,10 @@ export default function ProductDetailsPage() {
           <Typography>{product.description}</Typography>
 
           <div className="pt-4">
-            <Button disabled={product.stock === 0}>
+            <Button
+              onClick={() => addToCart(product)}
+              disabled={product.stock === 0}
+            >
               {product.stock > 0 ? "Add to Cart" : "Out of Stock"}
             </Button>
           </div>
