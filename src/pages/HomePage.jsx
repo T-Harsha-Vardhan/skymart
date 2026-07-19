@@ -1,19 +1,20 @@
 import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
 import Container from "../components/ui/Container";
 import Typography from "../components/ui/Typography";
 
 export default function HomePage() {
   return (
     <Container>
-      <Typography variant="h1">SkyMart</Typography>
+      <Card>
+        <Typography variant="h2">iPhone 17 Pro</Typography>
 
-      <div className="mt-6 flex gap-4">
-        <Button>Buy Now</Button>
+        <Typography>₹89,999</Typography>
 
-        <Button variant="secondary">Cancel</Button>
-
-        <Button disabled>Processing...</Button>
-      </div>
+        <div className="mt-4">
+          <Button>Add to Cart</Button>
+        </div>
+      </Card>
     </Container>
   );
 }
