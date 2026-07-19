@@ -1,22 +1,31 @@
 @theme {
-  /* Colors */
+  /* Brand */
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
-  --color-secondary: #64748b;
 
-  /* Neutral */
+  /* Surface */
   --color-background: #ffffff;
   --color-surface: #f8fafc;
-  --color-border: #e2e8f0;
+
+  /* Content */
   --color-text: #0f172a;
   --color-text-muted: #64748b;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+
+  /* States */
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-error: #dc2626;
+  --color-info: #0ea5e9;
 
   /* Radius */
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
 
-  /* Shadows */
+  /* Shadow */
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 8px rgb(0 0 0 / 0.08);
 

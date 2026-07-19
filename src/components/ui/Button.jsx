@@ -1,9 +1,9 @@
 const variants = {
   primary:
-    "rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50",
+    "rounded-md bg-primary px-4 py-2 text-white transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-50",
 
   secondary:
-    "rounded-md border border-gray-300 px-4 py-2 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50",
+    "rounded-md border border-border bg-background px-4 py-2 text-text transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-50",
 };
 
 export default function Button({
