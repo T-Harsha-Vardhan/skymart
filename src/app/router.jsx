@@ -10,6 +10,8 @@ import LoginPage from "../pages/LoginPage";
 import ProtectedRoute from "../routes/ProtectedRoute";
 import ProductsbyCategoryPage from "../pages/ProductsbyCategoryPage";
 import CategoriesPage from "../pages/CategoriesPage";
+import NotFoundPage from "../pages/NotFoundPage";
+import ProfilePage from "../pages/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -40,12 +42,24 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
+      },
+      {
         path: "/products/:id",
         element: <ProductDetailsPage />,
       },
       {
         path: "/design-system",
         element: <DesignSystemPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },
