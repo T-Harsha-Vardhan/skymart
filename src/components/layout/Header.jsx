@@ -8,6 +8,7 @@ import { ShoppingCartIcon, User } from "lucide-react";
 import Button from "../ui/Button";
 import { useContext, useState } from "react";
 import AuthContext from "../../context/AuthContext";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const { cart } = useCart();
@@ -43,14 +44,14 @@ export default function Header() {
   return (
     <header className="border-border bg-background border-b-4 relative z-50">
       <Container>
-        <div className="flex items-center justify-between gap-6 py-4">
+        <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-4 md:gap-6 py-4">
           {/* Logo */}
           <Link to={"/"}>
             <Typography variant="h1">SkyMart</Typography>
           </Link>
 
           {/* Search */}
-          <div className="hidden max-w-lg flex-1 md:block">
+          <div className="order-last w-full md:order-none md:max-w-lg md:flex-1">
             <form onSubmit={handleSearch}>
               <Input 
                 placeholder="Search products..." 
@@ -62,11 +63,12 @@ export default function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4 text-2xl">
+            <ThemeToggle />
             <Link to={`/cart`}>
               <div className="relative flex items-center gap-2">
                 <ShoppingCartIcon size={24} />
 
-                <span className="bg-primary absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center border-2 border-black p-2 text-xs font-bold text-black shadow-[2px_2px_0px_0px_#000]">
+                <span className="bg-primary absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center border-2 border-border p-2 text-xs font-bold text-black! shadow-sm">
                   {cartCount}
                 </span>
               </div>
@@ -83,17 +85,17 @@ export default function Header() {
               </Button>
 
               {isDropdownOpen && user && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-white border-4 border-black shadow-[8px_8px_0px_0px_#000] flex flex-col p-2">
+                <div className="absolute right-0 top-full mt-2 w-48 bg-surface border-4 border-border shadow-md flex flex-col p-2 z-50">
                   <Link 
                     to="/profile" 
-                    className="p-2 font-bold uppercase hover:bg-primary border-2 border-transparent hover:border-black transition-all"
+                    className="p-2 font-bold uppercase text-text hover:bg-primary border-2 border-transparent hover:border-border hover:text-black! transition-all"
                     onClick={() => setIsDropdownOpen(false)}
                   >
                     My Profile
                   </Link>
                   <button 
                     onClick={handleLogout}
-                    className="p-2 font-bold uppercase hover:bg-primary border-2 border-transparent hover:border-black transition-all text-left"
+                    className="p-2 font-bold uppercase text-text hover:bg-primary border-2 border-transparent hover:border-border hover:text-black! transition-all text-left"
                   >
                     Logout
                   </button>

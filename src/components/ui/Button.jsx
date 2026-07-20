@@ -1,14 +1,14 @@
 const variants = {
   primary:
-    "rounded-none border-2 border-border bg-primary font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0px_0px_#000] active:translate-y-1 active:translate-x-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
+    "rounded-none border-2 border-border bg-primary font-bold uppercase transition-all shadow-md hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-lg active:translate-y-1 active:translate-x-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer text-black!",
 
   secondary:
-    "rounded-none border-2 border-border bg-surface font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0px_0px_#000] hover:bg-white active:translate-y-1 active:translate-x-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
+    "rounded-none border-2 border-border bg-surface font-bold uppercase transition-all shadow-md hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-lg hover:bg-background active:translate-y-1 active:translate-x-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
 
   ghost:
-    "rounded-none border-2 border-transparent font-bold uppercase transition-all hover:bg-surface hover:border-border hover:shadow-[4px_4px_0px_0px_#000] active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
+    "rounded-none border-2 border-transparent font-bold uppercase transition-all hover:bg-surface hover:border-border hover:shadow-md active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
 
-  icon: "flex items-center justify-center rounded-none border-2 border-border bg-primary text-text shadow-[4px_4px_0px_0px_#000] transition-all hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0px_0px_#000] active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
+  icon: "flex items-center justify-center rounded-none border-2 border-border bg-primary text-black! shadow-md transition-all hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-lg active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
 };
 
 const sizes = {

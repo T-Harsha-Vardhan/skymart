@@ -20,11 +20,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="bg-secondary py-20 border-b-4 border-black">
+    <section className="bg-secondary py-20 border-b-4 border-border">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Content */}
-          <div className="space-y-8 bg-white p-8 border-4 border-black shadow-[8px_8px_0px_0px_#000]">
+          <div className="space-y-8 bg-surface p-8 border-4 border-border shadow-lg">
             <Typography variant="h1">
               Discover Your Next Favorite Product
             </Typography>
@@ -51,7 +51,7 @@ export default function Hero() {
             <img
               src={product.images?.[0]}
               alt="Featured products"
-              className="w-full max-w-lg border-4 border-black object-cover shadow-[12px_12px_0px_0px_#000] bg-white p-2"
+              className="w-full max-w-lg border-4 border-border object-cover shadow-xl bg-surface p-2"
             />
           </div>
         </div>

@@ -47,8 +47,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center gap-8 bg-secondary">
-      <div className="bg-white p-12 border-4 border-black shadow-[12px_12px_0px_0px_#000] w-full max-w-md">
+    <div className="flex px-4 md:px-0 min-h-screen w-full flex-col items-center justify-center gap-8 bg-secondary">
+      <div className="bg-surface p-12 border-4 border-border shadow-xl w-full max-w-md">
         <div className="mb-8 text-center">
           <Typography variant="h2">Welcome to SkyMart</Typography>
         </div>
@@ -94,7 +94,7 @@ export default function LoginPage() {
           
           <Typography variant="caption" className="text-center block mt-2">
             Don't have an account?{" "}
-            <Link to="/register" className="underline text-black">
+            <Link to="/register" className="underline text-text">
               Register
             </Link>
           </Typography>

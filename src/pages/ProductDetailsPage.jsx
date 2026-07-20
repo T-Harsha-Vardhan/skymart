@@ -45,7 +45,7 @@ export default function ProductDetailsPage() {
     <Container>
       <div className="grid gap-12 py-16 lg:grid-cols-2">
         {/* Product Image */}
-        <div className="border-border bg-white overflow-hidden border-4 shadow-[12px_12px_0px_0px_#000]">
+        <div className="border-border bg-surface overflow-hidden border-4 shadow-xl">
           <img
             src={product.images[0]}
             alt={product.title}

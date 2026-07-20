@@ -10,12 +10,12 @@ export default function CartSidebar() {
   }
 
   return (
-    <aside className="border-border bg-background w-80 shrink-0 border-l-4">
+    <aside className="hidden lg:block border-border bg-background w-80 shrink-0 border-l-4">
       <div className="sticky top-0 flex h-screen max-h-screen flex-col p-6">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-black uppercase">Shopping Cart</h2>
 
-          <span className="bg-primary border-2 border-black px-2 py-1 text-xs font-bold text-black shadow-[2px_2px_0px_0px_#000]">
+          <span className="bg-primary border-2 border-border px-2 py-1 text-xs font-bold text-black! shadow-sm">
             {totalItems}
           </span>
         </div>

@@ -10,7 +10,7 @@ export default function ProductCard({ id, title, price, image }) {
         <img
           src={image}
           alt={title}
-          className="aspect-square w-full border-4 border-black object-cover"
+          className="aspect-square w-full border-4 border-border object-cover"
         />
 
         <div className="mt-4 flex flex-1 flex-col">

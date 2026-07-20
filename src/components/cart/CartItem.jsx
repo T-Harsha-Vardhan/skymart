@@ -13,7 +13,7 @@ export default function CartItem({ item, fullWidth }) {
       />
 
       <div
-        className={`flex min-w-0 flex-1 gap-4 ${fullWidth ? "flex-row justify-between" : "flex-col"}`}
+        className={`flex min-w-0 flex-1 gap-4 ${fullWidth ? "flex-col sm:flex-row sm:justify-between" : "flex-col"}`}
       >
         <div>
           <h3 className="mb-2 truncate font-medium">{item.product.title}</h3>

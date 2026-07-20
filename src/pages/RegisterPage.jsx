@@ -51,8 +51,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center gap-8 bg-primary">
-      <div className="bg-white p-12 border-4 border-black shadow-[12px_12px_0px_0px_#000] w-full max-w-md">
+    <div className="flex px-4 md:px-0 min-h-screen w-full flex-col items-center justify-center gap-8 bg-primary">
+      <div className="bg-surface p-12 border-4 border-border shadow-xl w-full max-w-md">
         <div className="mb-8 text-center">
           <Typography variant="h2">Join SkyMart</Typography>
         </div>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
           
           <Typography variant="caption" className="text-center block mt-2">
             Already have an account?{" "}
-            <Link to="/login" className="underline text-black">
+            <Link to="/login" className="underline text-text">
               Login
             </Link>
           </Typography>

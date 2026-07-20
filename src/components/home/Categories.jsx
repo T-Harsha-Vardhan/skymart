@@ -27,9 +27,9 @@ export default function Categories() {
             {categories.map((category) => (
               <Link key={category} to={`/categories/${category}`}>
                 <div
-                  className="border-border bg-primary border-4 p-8 text-center transition-all shadow-[8px_8px_0px_0px_#000] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[12px_12px_0px_0px_#000]"
+                  className="border-border bg-primary border-4 p-8 text-center transition-all shadow-lg hover:-translate-y-1 hover:-translate-x-1 hover:shadow-xl text-black!"
                 >
-                  <Typography variant="h3">
+                  <Typography variant="h3" className="text-black!">
                     {category.split("-").join(" ")}
                   </Typography>
                 </div>
