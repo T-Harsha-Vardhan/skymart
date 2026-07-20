@@ -2,9 +2,27 @@
 
 /* Global application styles */
 @layer base {
+  :root {
+    --bg-color: #ffffff;
+    --surface-color: #f4f4f0;
+    --text-color: #000000;
+    --text-muted: #333333;
+    --border-color: #000000;
+    --shadow-color: #000000;
+  }
+  
+  .dark {
+    --bg-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #ffffff;
+    --text-muted: #cccccc;
+    --border-color: #ffffff;
+    --shadow-color: #ffffff;
+  }
+
   body {
     font-family: "Space Grotesk", sans-serif;
-    @apply bg-background text-text antialiased;
+    @apply bg-background text-text antialiased transition-colors duration-300;
   }
 }
 
