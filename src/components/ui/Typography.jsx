@@ -14,8 +14,12 @@ const styles = {
   caption: "text-sm text-text-muted",
 };
 
-export default function Typography({ variant = "body", children }) {
+export default function Typography({ variant = "body", children, className }) {
   const Component = elements[variant] || "p";
 
-  return <Component className={styles[variant]}>{children}</Component>;
+  return (
+    <Component className={`${styles[variant]} ${className}`}>
+      {children}
+    </Component>
+  );
 }
