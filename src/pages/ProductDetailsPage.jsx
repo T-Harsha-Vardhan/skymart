@@ -2,12 +2,16 @@ import { useParams } from "react-router";
 import Container from "../components/ui/Container";
 import Typography from "../components/ui/Typography";
 import Button from "../components/ui/Button";
-import { products } from "../data/products";
+
 import useCart from "../context/useCart";
 import QuantitySelector from "../components/cart/QuantitySelector";
+import { useEffect, useState } from "react";
+import { getProductById } from "../api/productApi";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
+
+  const [product, setProduct] = useState({});
 
   const {
     cart,
@@ -17,7 +21,14 @@ export default function ProductDetailsPage() {
     removeFromCart,
   } = useCart();
 
-  const product = products.find((product) => product.id === Number(id));
+  useEffect(() => {
+    const loadProduct = async () => {
+      const productsData = await getProductById(id);
+      setProduct(productsData);
+    };
+
+    loadProduct();
+  }, [id]);
 
   const isProductExists = cart.find((item) => item.product.id === product.id);
 
@@ -39,7 +50,7 @@ export default function ProductDetailsPage() {
         {/* Product Image */}
         <div className="border-border bg-muted overflow-hidden rounded-xl border">
           <img
-            src={product.image}
+            src={product.images?.[0]}
             alt={product.title}
             className="aspect-square w-full object-cover"
           />
@@ -65,9 +76,7 @@ export default function ProductDetailsPage() {
             </Typography>
           </div>
 
-          <Typography variant="h2">
-            ₹{product.price.toLocaleString()}
-          </Typography>
+          <Typography variant="h2">₹{product.price}</Typography>
 
           <Typography>{product.description}</Typography>
 

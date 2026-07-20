@@ -1,9 +1,21 @@
 import Container from "../ui/Container";
 import Typography from "../ui/Typography";
 import ProductGrid from "../product/ProductGrid";
-import { products } from "../../data/products";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../api/productApi";
 
 export default function FeaturedProducts() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      const productsData = await getProducts();
+      setProducts(productsData);
+    };
+
+    loadProducts();
+  }, []);
+
   return (
     <section className="py-20">
       <Container>

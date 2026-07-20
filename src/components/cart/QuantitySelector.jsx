@@ -7,7 +7,7 @@ export default function QuantitySelector({
   onRemove,
 }) {
   return (
-    <>
+    <div>
       <div className="flex items-center gap-2">
         <Button size="sm" variant="icon" onClick={onDecrease}>
           -
@@ -23,6 +23,6 @@ export default function QuantitySelector({
       <Button variant="ghost" color="danger" onClick={onRemove}>
         Remove
       </Button>
-    </>
+    </div>
   );
 }
