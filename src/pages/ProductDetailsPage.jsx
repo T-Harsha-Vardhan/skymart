@@ -2,12 +2,22 @@ import { useParams } from "react-router";
 import Container from "../components/ui/Container";
 import Typography from "../components/ui/Typography";
 import Button from "../components/ui/Button";
-import { products } from "../data/products";
 import useCart from "../context/useCart";
 import QuantitySelector from "../components/cart/QuantitySelector";
+import { getProductById } from "../api/productApi";
+import useApi from "../hooks/useApi.js";
+import LoadingState from "../components/feedback/LoadingState";
+import ErrorState from "../components/feedback/ErrorState";
+import EmptyState from "../components/feedback/EmptyState";
 
 export default function ProductDetailsPage() {
   const { id } = useParams();
+
+  const {
+    data: product,
+    isLoading,
+    error,
+  } = useApi(() => getProductById(id), [id]);
 
   const {
     cart,
@@ -17,21 +27,19 @@ export default function ProductDetailsPage() {
     removeFromCart,
   } = useCart();
 
-  const product = products.find((product) => product.id === Number(id));
-
   const isProductExists = cart.find((item) => item.product.id === product.id);
 
-  if (!product) {
-    return (
-      <Container>
-        <div className="space-y-4 py-20 text-center">
-          <Typography variant="h1">Product Not Found</Typography>
+  if (isLoading) return <LoadingState loadingText="Loading Product..." />;
 
-          <Typography>The product you're looking for doesn't exist.</Typography>
-        </div>
-      </Container>
+  if (error) return <ErrorState error={error} />;
+
+  if (!product)
+    return (
+      <EmptyState
+        title="Product Not Found"
+        subTitle="The product you're looking for doesn't exist."
+      />
     );
-  }
 
   return (
     <Container>
@@ -39,7 +47,7 @@ export default function ProductDetailsPage() {
         {/* Product Image */}
         <div className="border-border bg-muted overflow-hidden rounded-xl border">
           <img
-            src={product.image}
+            src={product.images[0]}
             alt={product.title}
             className="aspect-square w-full object-cover"
           />
@@ -65,9 +73,7 @@ export default function ProductDetailsPage() {
             </Typography>
           </div>
 
-          <Typography variant="h2">
-            ₹{product.price.toLocaleString()}
-          </Typography>
+          <Typography variant="h2">₹{product.price}</Typography>
 
           <Typography>{product.description}</Typography>
 

@@ -5,7 +5,7 @@ export default function CartSummary({ subtotal, noViewCart = false }) {
   const navigate = useNavigate();
 
   return (
-    <div className="mt-8 border-t pt-6">
+    <div className="mt-4 border-t pt-6">
       <div className="mb-4 flex justify-between">
         <span>Subtotal</span>
 

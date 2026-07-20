@@ -31,13 +31,14 @@ export default function Button({
   disabled = false,
   type = "button",
   onClick,
+  className,
 }) {
   return (
     <button
       onClick={onClick}
       type={type}
       disabled={disabled}
-      className={` ${variants[variant]} ${sizes[size]} ${colors[color]} `}
+      className={` ${variants[variant]} ${sizes[size]} ${colors[color]} ${className}`}
     >
       {children}
     </button>
