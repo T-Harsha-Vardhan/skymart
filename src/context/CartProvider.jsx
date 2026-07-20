@@ -1,11 +1,36 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import CartContext from "./CartContext";
+import AuthContext from "./AuthContext";
 
 export default function CartProvider({ children }) {
+  const { user } = useContext(AuthContext);
   const [cart, setCart] = useState([]);
 
-  function addToCart(product) {
+  useEffect(() => {
+    if (user) {
+      const savedCart = localStorage.getItem(`skymart.cart.${user.email}`);
+      if (savedCart) {
+        setCart(JSON.parse(savedCart));
+      } else {
+        setCart([]);
+      }
+    } else {
+      setCart([]);
+    }
+  }, [user]);
+
+  function updateCartAndStorage(updater) {
     setCart((previousCart) => {
+      const newCart = typeof updater === "function" ? updater(previousCart) : updater;
+      if (user) {
+        localStorage.setItem(`skymart.cart.${user.email}`, JSON.stringify(newCart));
+      }
+      return newCart;
+    });
+  }
+
+  function addToCart(product) {
+    updateCartAndStorage((previousCart) => {
       const existingItem = previousCart.find(
         (item) => item.product.id === product.id
       );
@@ -29,7 +54,7 @@ export default function CartProvider({ children }) {
   }
 
   function increaseQuantity(productId) {
-    setCart((previousCart) =>
+    updateCartAndStorage((previousCart) =>
       previousCart.map((item) =>
         item.product.id === Number(productId)
           ? { ...item, quantity: item.quantity + 1 }
@@ -39,7 +64,7 @@ export default function CartProvider({ children }) {
   }
 
   function decreaseQuantity(productId) {
-    setCart((previousCart) =>
+    updateCartAndStorage((previousCart) =>
       previousCart.flatMap((item) => {
         if (item.product.id !== Number(productId)) {
           return item;
@@ -64,7 +89,7 @@ export default function CartProvider({ children }) {
   }
 
   function clearCart() {
-    setCart([]);
+    updateCartAndStorage([]);
   }
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);

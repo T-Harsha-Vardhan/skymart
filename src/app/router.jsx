@@ -5,6 +5,9 @@ import HomePage from "../pages/HomePage";
 import ProductsPage from "../pages/ProductsPage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 import CartPage from "../pages/CartPage";
+import RegisterPage from "../pages/RegisterPage";
+import LoginPage from "../pages/LoginPage";
+import ProtectedRoute from "../routes/ProtectedRoute";
 import ProductsbyCategoryPage from "../pages/ProductsbyCategoryPage";
 import CategoriesPage from "../pages/CategoriesPage";
 
@@ -30,7 +33,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <CartPage />,
+        element: (
+          <ProtectedRoute>
+            <CartPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/products/:id",
@@ -41,5 +48,13 @@ export const router = createBrowserRouter([
         element: <DesignSystemPage />,
       },
     ],
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ]);
