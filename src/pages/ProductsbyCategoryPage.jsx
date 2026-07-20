@@ -10,8 +10,6 @@ export default function ProductsbyCategoryPage() {
 
   const { category } = useParams();
 
-  console.log(category);
-
   useEffect(() => {
     const loadProducts = async () => {
       const productsData = await getProductsByCategory(category);
