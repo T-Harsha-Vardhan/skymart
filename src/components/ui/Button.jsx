@@ -1,14 +1,14 @@
 const variants = {
   primary:
-    "rounded-md bg-primary px-4 py-2 text-white transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
+    "rounded-none border-2 border-border bg-primary font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0px_0px_#000] active:translate-y-1 active:translate-x-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
 
   secondary:
-    "rounded-md border border-border bg-background px-4 py-2 text-text transition-colors hover:bg-surface disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
+    "rounded-none border-2 border-border bg-surface font-bold uppercase transition-all shadow-[4px_4px_0px_0px_#000] hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0px_0px_#000] hover:bg-white active:translate-y-1 active:translate-x-1 active:shadow-none disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer",
 
   ghost:
-    "rounded-md transition-colors hover:bg-surface active:scale-95 cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
+    "rounded-none border-2 border-transparent font-bold uppercase transition-all hover:bg-surface hover:border-border hover:shadow-[4px_4px_0px_0px_#000] active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
 
-  icon: "flex items-center justify-center rounded-full bg-primary text-white transition-colors cursor-pointer hover:bg-primary-hover active:scale-95 disabled:cursor-not-allowed disabled:opacity-50",
+  icon: "flex items-center justify-center rounded-none border-2 border-border bg-primary text-text shadow-[4px_4px_0px_0px_#000] transition-all hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0px_0px_#000] active:translate-y-1 active:translate-x-1 active:shadow-none cursor-pointer disabled:cursor-not-allowed disabled:opacity-50",
 };
 
 const sizes = {

@@ -7,11 +7,11 @@ const elements = {
 };
 
 const styles = {
-  h1: "text-4xl font-bold tracking-tight text-primary",
-  h2: "text-3xl font-semibold tracking-tight text-text",
-  h3: "text-2xl font-semibold text-text",
-  body: "text-base text-text",
-  caption: "text-sm text-text-muted",
+  h1: "text-4xl md:text-6xl font-black uppercase tracking-tighter text-text",
+  h2: "text-3xl md:text-4xl font-bold uppercase tracking-tight text-text",
+  h3: "text-2xl font-bold uppercase tracking-tight text-text",
+  body: "text-base font-medium text-text",
+  caption: "text-sm font-bold text-text-muted uppercase",
 };
 
 export default function Typography({ variant = "body", children, className }) {
