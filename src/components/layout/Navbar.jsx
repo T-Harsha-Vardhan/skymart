@@ -11,8 +11,8 @@ export default function Navbar() {
               to={link.path}
               className={({ isActive }) =>
                 isActive
-                  ? "text-primary font-medium"
-                  : "text-text-muted hover:text-text transition-colors"
+                  ? "bg-primary border-2 border-black font-bold px-4 py-2 uppercase shadow-[4px_4px_0px_0px_#000]"
+                  : "bg-background text-text border-2 border-transparent font-bold px-4 py-2 uppercase hover:border-black hover:shadow-[4px_4px_0px_0px_#000] transition-all"
               }
             >
               {link.name}

@@ -4,7 +4,7 @@ import Typography from "../ui/Typography";
 
 export default function Footer() {
   return (
-    <footer className="border-border bg-surface mt-16 border-t">
+    <footer className="border-border bg-surface mt-16 border-t-4">
       <Container>
         <div className="grid gap-8 py-10 md:grid-cols-3">
           {footerSections.map((section) => (

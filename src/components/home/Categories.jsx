@@ -25,10 +25,9 @@ export default function Categories() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((category) => (
-              <Link to={`/categories/${category}`}>
+              <Link key={category} to={`/categories/${category}`}>
                 <div
-                  key={category}
-                  className="border-border bg-surface rounded-lg border p-8 text-center transition-shadow hover:shadow-md"
+                  className="border-border bg-primary border-4 p-8 text-center transition-all shadow-[8px_8px_0px_0px_#000] hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[12px_12px_0px_0px_#000]"
                 >
                   <Typography variant="h3">
                     {category.split("-").join(" ")}
