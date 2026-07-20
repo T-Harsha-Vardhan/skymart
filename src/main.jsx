@@ -6,21 +6,27 @@ import CartProvider from "./context/CartProvider";
 import AuthProvider from "./context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <CartProvider>
-      <Toaster 
-        toastOptions={{
-          style: {
-            border: '4px solid black',
-            borderRadius: '0',
-            boxShadow: '4px 4px 0px 0px #000',
-            fontWeight: 'bold',
-            textTransform: 'uppercase'
-          },
-        }}
-      />
-      <RouterProvider router={router} />
-    </CartProvider>
-  </AuthProvider>
+  <ThemeProvider>
+    <AuthProvider>
+      <CartProvider>
+        <Toaster 
+          toastOptions={{
+            style: {
+              border: '4px solid var(--border-color)',
+              borderRadius: '0',
+              boxShadow: 'var(--shadow-sm)',
+              fontWeight: 'bold',
+              textTransform: 'uppercase',
+              background: 'var(--surface-color)',
+              color: 'var(--text-color)',
+            },
+          }}
+        />
+        <RouterProvider router={router} />
+      </CartProvider>
+    </AuthProvider>
+  </ThemeProvider>
 );
