@@ -1,20 +1,27 @@
+import { getProducts } from "../api/productApi";
+import EmptyState from "../components/feedback/EmptyState";
+import ErrorState from "../components/feedback/ErrorState";
+import LoadingState from "../components/feedback/LoadingState";
+import ProductGrid from "../components/product/ProductGrid";
 import Container from "../components/ui/Container";
 import Typography from "../components/ui/Typography";
-import ProductGrid from "../components/product/ProductGrid";
-import { useEffect, useState } from "react";
-import { getProducts } from "../api/productApi";
+import useApi from "../hooks/useApi";
 
 export default function ProductsPage() {
-  const [products, setProducts] = useState([]);
+  const { data: products, isLoading, error } = useApi(getProducts);
 
-  useEffect(() => {
-    const loadProducts = async () => {
-      const productsData = await getProducts();
-      setProducts(productsData);
-    };
+  if (isLoading) return <LoadingState loadingText="Loading Products..." />;
 
-    loadProducts();
-  }, []);
+  if (error) return <ErrorState error={error} />;
+
+  if (!products)
+    return (
+      <EmptyState
+        title="Products are coming soon..."
+        subTitle="Thanks for your visit to our store, It means alot"
+      />
+    );
+
   return (
     <Container>
       <div className="space-y-8 py-12">
