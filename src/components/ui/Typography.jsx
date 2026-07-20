@@ -7,7 +7,7 @@ const elements = {
 };
 
 const styles = {
-  h1: "text-4xl font-bold tracking-tight text-text",
+  h1: "text-4xl font-bold tracking-tight text-primary",
   h2: "text-3xl font-semibold tracking-tight text-text",
   h3: "text-2xl font-semibold text-text",
   body: "text-base text-text",

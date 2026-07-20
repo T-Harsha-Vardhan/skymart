@@ -8,6 +8,8 @@ import CartPage from "../pages/CartPage";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import ProtectedRoute from "../routes/ProtectedRoute";
+import ProductsbyCategoryPage from "../pages/ProductsbyCategoryPage";
+import CategoriesPage from "../pages/CategoriesPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ export const router = createBrowserRouter([
       {
         path: "/products",
         element: <ProductsPage />,
+      },
+      {
+        path: "/categories",
+        element: <CategoriesPage />,
+      },
+      {
+        path: "/categories/:category",
+        element: <ProductsbyCategoryPage />,
       },
       {
         path: "/cart",

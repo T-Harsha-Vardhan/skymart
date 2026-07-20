@@ -56,7 +56,7 @@ export default function CartProvider({ children }) {
   function increaseQuantity(productId) {
     updateCartAndStorage((previousCart) =>
       previousCart.map((item) =>
-        item.product.id === productId
+        item.product.id === Number(productId)
           ? { ...item, quantity: item.quantity + 1 }
           : item
       )
@@ -66,7 +66,7 @@ export default function CartProvider({ children }) {
   function decreaseQuantity(productId) {
     updateCartAndStorage((previousCart) =>
       previousCart.flatMap((item) => {
-        if (item.product.id !== productId) {
+        if (item.product.id !== Number(productId)) {
           return item;
         }
 
@@ -83,8 +83,8 @@ export default function CartProvider({ children }) {
   }
 
   function removeFromCart(productId) {
-    updateCartAndStorage((previousCart) =>
-      previousCart.filter((item) => item.product.id !== productId)
+    setCart((previousCart) =>
+      previousCart.filter((item) => item.product.id !== Number(productId))
     );
   }
 

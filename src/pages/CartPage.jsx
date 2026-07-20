@@ -15,7 +15,7 @@ export default function CartPage() {
 
       {cart && cart.length > 0 ? (
         <>
-          <CartList cart={cart} />
+          <CartList cart={cart} fullWidth={true} />
           <CartSummary subtotal={subtotal} noViewCart />
         </>
       ) : (

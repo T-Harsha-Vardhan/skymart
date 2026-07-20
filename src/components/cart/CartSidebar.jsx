@@ -11,7 +11,7 @@ export default function CartSidebar() {
 
   return (
     <aside className="border-border bg-background w-80 shrink-0 border-l">
-      <div className="sticky top-0 flex h-screen flex-col p-6">
+      <div className="sticky top-0 flex h-screen max-h-screen flex-col p-6">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="text-xl font-semibold">Shopping Cart</h2>
 
