@@ -58,3 +58,33 @@ export async function getProductsByCategory(category) {
 
   return data.products;
 }
+
+export async function getProductsWithFilters({
+  query = "",
+  limit = 30,
+  skip = 0,
+  sortBy = "",
+  order = "asc",
+} = {}) {
+  const baseUrl = query
+    ? `https://dummyjson.com/products/search?q=${query}`
+    : "https://dummyjson.com/products";
+
+  const url = new URL(baseUrl);
+  url.searchParams.append("limit", limit);
+  url.searchParams.append("skip", skip);
+  
+  if (sortBy) {
+    url.searchParams.append("sortBy", sortBy);
+    url.searchParams.append("order", order);
+  }
+
+  const response = await fetch(url.toString());
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch products");
+  }
+
+  return data;
+}
